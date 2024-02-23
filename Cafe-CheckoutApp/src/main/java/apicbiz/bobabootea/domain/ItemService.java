@@ -21,5 +21,5 @@ public class ItemService {
     public Item findById(int id) throws DataAccessException {
         return repository.findById(id);
     }
-    
+
 }
