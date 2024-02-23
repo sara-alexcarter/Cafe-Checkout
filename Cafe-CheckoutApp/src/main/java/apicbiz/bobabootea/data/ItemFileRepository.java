@@ -1,6 +1,7 @@
 package apicbiz.bobabootea.data;
 
 import apicbiz.bobabootea.models.Item;
+import apicbiz.bobabootea.models.ItemType;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -33,6 +34,11 @@ public class ItemFileRepository implements ItemRepository {
             reader.readLine();
 
             // keep reading the next line until there are no lines left to read
+            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+                Item item = deserialize(line);
+                result.add(item);
+            }
+
         } catch (FileNotFoundException ex) {
             // ignore
         } catch (IOException ex) {
@@ -41,8 +47,39 @@ public class ItemFileRepository implements ItemRepository {
         return result;
     }
 
+    @Override
+    public Item findById(int Id) throws DataAccessException {
+        List<Item> items = findAll();
+
+        for (Item i : items) {
+            if (i.getItemId() == Id) {
+                return i;
+            }
+        }
+
+        return null;
+    }
+
+    private Item deserialize(String line) {
+        // split the line into its fields
+        String[] field = line.split(",");
+        // make sure all fields are there
+        if (field.length != 4) {
+            return null;
+        }
+        // call teh constructor and set the field values
+        Item item = new Item();
+        item.setItemId(Integer.parseInt(field[0]));
+        item.setType(ItemType.valueOf(field[1]));
+        item.setName(field[2]);
+        item.setPrice(Double.parseDouble(field[3]));
+
+        return item;
+    }
+
     // Create Operations
-    // add item to the cart
+    // add new items to menu
+
 
     // Update Operatons
     // update cart

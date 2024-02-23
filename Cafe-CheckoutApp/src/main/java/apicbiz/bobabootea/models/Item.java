@@ -1,5 +1,7 @@
 package apicbiz.bobabootea.models;
 
+import java.util.Objects;
+
 public class Item {
     private int itemId;
     private ItemType type;
@@ -7,6 +9,9 @@ public class Item {
     private double price;
 
 
+    public Item() {
+
+    }
     public Item(int itemId, ItemType type, String name, double price) {
         this.itemId = itemId;
         this.type = type;
@@ -45,4 +50,29 @@ public class Item {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return getItemId() == item.getItemId() && Double.compare(getPrice(), item.getPrice()) == 0 && getType() == item.getType() && Objects.equals(getName(), item.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getItemId(), getType(), getName(), getPrice());
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemId=" + itemId +
+                ", type=" + type +
+                ", name='" + name + '\'' +
+                ", price= $" + price +
+                '}';
+    }
+
+
 }
