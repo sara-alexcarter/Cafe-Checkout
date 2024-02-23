@@ -1,15 +1,13 @@
 package apicbiz.bobabootea.presentation.menus;
 
-import javax.imageio.plugins.tiff.ExifInteroperabilityTagSet;
-
-public enum mainMenu {
+public enum MainMenu {
+    EXIT("Exit"),
     MAIN_MENU("Main Menu"),
-    VIEW_CART("View Cart"),
-    EXIT("Exit");
+    VIEW_CART("View Cart");
 
     private String menuOptions;
 
-    private mainMenu(String menuOptions) {
+    private MainMenu(String menuOptions) {
         this.menuOptions = menuOptions;
     }
 

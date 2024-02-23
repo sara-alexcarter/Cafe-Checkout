@@ -1,7 +1,6 @@
 package apicbiz.bobabootea.presentation;
 
-import apicbiz.bobabootea.models.Item;
-import apicbiz.bobabootea.presentation.menus.mainMenu;
+import apicbiz.bobabootea.presentation.menus.MainMenu;
 
 public class Controller {
 
@@ -28,16 +27,16 @@ public class Controller {
     // run app to choose menu options
     public void runMainMenu() {
 
-        mainMenu option;
+        MainMenu option;
 
         do {
             option = view.selectMainMenuOption();
 
             switch (option) {
-                case MAIN_MENU -> System.out.println("Selected Main Menu");
+                case MAIN_MENU -> itemController.runItemMenu();
                 case VIEW_CART -> System.out.println("Selected Cart");
             }
-        } while (option != mainMenu.EXIT);
+        } while (option != MainMenu.EXIT);
 
     }
 }

@@ -1,6 +1,7 @@
 package apicbiz.bobabootea.presentation;
 
-import apicbiz.bobabootea.presentation.menus.mainMenu;
+import apicbiz.bobabootea.presentation.menus.ItemTypeMenu;
+import apicbiz.bobabootea.presentation.menus.MainMenu;
 
 public class View {
     ConsoleIO io;
@@ -20,9 +21,15 @@ public class View {
         return index;
     }
 
-    public mainMenu selectMainMenuOption() {
+    public MainMenu selectMainMenuOption() {
         displayHeader("Main Menu");
-        mainMenu[] values = mainMenu.values();
+        MainMenu[] values = MainMenu.values();
+        return values[selectOption(values)];
+    }
+
+    public ItemTypeMenu selectItemMenuOption() {
+        displayHeader("Item Menu");
+        ItemTypeMenu[] values = ItemTypeMenu.values();
         return values[selectOption(values)];
     }
 

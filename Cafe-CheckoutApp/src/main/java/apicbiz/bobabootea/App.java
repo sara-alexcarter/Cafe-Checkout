@@ -1,5 +1,7 @@
 package apicbiz.bobabootea;
 
+import apicbiz.bobabootea.data.ItemFileRepository;
+import apicbiz.bobabootea.domain.ItemService;
 import apicbiz.bobabootea.presentation.ConsoleIO;
 import apicbiz.bobabootea.presentation.Controller;
 import apicbiz.bobabootea.presentation.ItemController;
@@ -10,8 +12,11 @@ public class App {
         ConsoleIO io = new ConsoleIO();
         View view = new View(io);
 
-        ItemController itemController = new ItemController();
+        String filepath = "./data/MenuItems/menuItems.csv";
+        ItemFileRepository repository = new ItemFileRepository(filepath);
 
+        ItemService service = new ItemService(repository);
+        ItemController itemController = new ItemController(service, view);
         Controller controller = new Controller(itemController, view);
 
         controller.run();
