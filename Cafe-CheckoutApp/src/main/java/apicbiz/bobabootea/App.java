@@ -12,7 +12,7 @@ public class App {
         ConsoleIO io = new ConsoleIO();
         View view = new View(io);
 
-        String filepath = "./data/MenuItems/menuItems.csv";
+        String filepath = "./data/menuItems/menuItems.csv";
         ItemFileRepository repository = new ItemFileRepository(filepath);
 
         ItemService service = new ItemService(repository);

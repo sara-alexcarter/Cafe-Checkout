@@ -1,5 +1,6 @@
 package apicbiz.bobabootea.presentation;
 
+import apicbiz.bobabootea.data.DataAccessException;
 import apicbiz.bobabootea.presentation.menus.MainMenu;
 
 public class Controller {
@@ -25,7 +26,7 @@ public class Controller {
 
 
     // run app to choose menu options
-    public void runMainMenu() {
+    public void runMainMenu() throws DataAccessException {
 
         MainMenu option;
 

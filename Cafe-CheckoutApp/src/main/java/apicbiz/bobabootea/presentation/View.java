@@ -1,7 +1,10 @@
 package apicbiz.bobabootea.presentation;
 
+import apicbiz.bobabootea.models.Item;
 import apicbiz.bobabootea.presentation.menus.ItemTypeMenu;
 import apicbiz.bobabootea.presentation.menus.MainMenu;
+
+import java.util.List;
 
 public class View {
     ConsoleIO io;
@@ -42,5 +45,12 @@ public class View {
     public void displayException(Exception ex) {
         displayHeader("A critical error occurred:");
         io.println(ex.getMessage());
+    }
+
+    public void displayItems(List<Item> items) {
+        for (Item i : items) {
+
+            io.printf("%d. %s $%.2f%n", i.getItemId(), i.getName(), i.getPrice());
+        }
     }
 }

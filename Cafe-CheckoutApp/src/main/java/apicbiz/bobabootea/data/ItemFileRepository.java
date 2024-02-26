@@ -60,6 +60,19 @@ public class ItemFileRepository implements ItemRepository {
         return null;
     }
 
+    public List<Item> findByType(ItemType type) throws DataAccessException {
+        List<Item> items = findAll();
+        List<Item> result = new ArrayList<>();
+
+        for (Item i : items) {
+            if(i.getType() == type) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
+
     private Item deserialize(String line) {
         // split the line into its fields
         String[] field = line.split(",");
