@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -43,7 +44,7 @@ class ItemFileRepositoryTest {
     @Test
     void shouldFindExistingId() throws DataAccessException {
         Item actual = repository.findById(5);
-        Item expected = new Item(5, ItemType.ICED_COFFEE, "Buccaneer's Blend (Iced Caramel Macchiato)", 5.00 );
+        Item expected = new Item(5, ItemType.ICED_COFFEE, "Buccaneer's Blend (Iced Caramel Macchiato)", BigDecimal.valueOf(5.00) );
         assertEquals(expected, actual);
     }
 

@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,7 +86,7 @@ public class ItemFileRepository implements ItemRepository {
         item.setItemId(Integer.parseInt(field[0]));
         item.setType(ItemType.valueOf(field[1]));
         item.setName(field[2]);
-        item.setPrice(Double.parseDouble(field[3]));
+        item.setPrice(BigDecimal.valueOf(Double.parseDouble(field[3]))); // string -> double -> bigDecimal
 
         return item;
     }
