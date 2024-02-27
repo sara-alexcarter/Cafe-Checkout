@@ -17,7 +17,7 @@ public class Item {
         this.itemId = itemId;
         this.type = type;
         this.name = name;
-        this.price = price;
+        this.price = price.setScale(2);
     }
 
     public int getItemId() {

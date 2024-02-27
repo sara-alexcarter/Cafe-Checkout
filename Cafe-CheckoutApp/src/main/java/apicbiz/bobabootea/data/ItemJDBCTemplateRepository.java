@@ -24,7 +24,7 @@ public class ItemJDBCTemplateRepository implements ItemRepository {
         final String sql = """
                 select *
                 from item
-                where itemId
+                where itemId = ?
                 """;
         return jdbcTemplate.query(sql, new ItemMapper(), Id).stream().findFirst().orElse(null);
     }
