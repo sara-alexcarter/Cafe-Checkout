@@ -1,7 +1,6 @@
 package apicbiz.bobabootea.domain;
 
 import apicbiz.bobabootea.data.DataAccessException;
-import apicbiz.bobabootea.data.ItemFileRepository;
 import apicbiz.bobabootea.data.ItemRepository;
 import apicbiz.bobabootea.models.Item;
 import apicbiz.bobabootea.models.ItemType;

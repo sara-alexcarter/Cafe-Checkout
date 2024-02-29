@@ -1,6 +1,5 @@
 package apicbiz.bobabootea;
 
-import apicbiz.bobabootea.data.ItemFileRepository;
 import apicbiz.bobabootea.data.ItemJDBCTemplateRepository;
 import apicbiz.bobabootea.domain.ItemService;
 import apicbiz.bobabootea.presentation.ConsoleIO;
@@ -14,8 +13,6 @@ public class App {
         ConsoleIO io = new ConsoleIO();
         View view = new View(io);
 
-//        String filepath = "./data/menuItems/menuItems.csv";
-//        ItemFileRepository repository = new ItemFileRepository(filepath);
 
         JdbcTemplate jdbcTemplate = DataHelper.getJdbcTemplate();
         ItemJDBCTemplateRepository repository = new ItemJDBCTemplateRepository(jdbcTemplate);
