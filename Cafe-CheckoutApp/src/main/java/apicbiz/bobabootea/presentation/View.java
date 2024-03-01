@@ -1,8 +1,8 @@
 package apicbiz.bobabootea.presentation;
 
 import apicbiz.bobabootea.models.Item;
-import apicbiz.bobabootea.presentation.menus.ItemTypeMenu;
-import apicbiz.bobabootea.presentation.menus.MainMenu;
+import apicbiz.bobabootea.models.ItemType;
+import apicbiz.bobabootea.presentation.menus.EntireMenu;
 
 import java.util.List;
 
@@ -24,15 +24,8 @@ public class View {
         return index;
     }
 
-    public MainMenu selectMainMenuOption() {
-        displayHeader("Main Menu");
-        MainMenu[] values = MainMenu.values();
-        return values[selectOption(values)];
-    }
-
-    public ItemTypeMenu selectItemMenuOption() {
-        displayHeader("Item Menu");
-        ItemTypeMenu[] values = ItemTypeMenu.values();
+    public EntireMenu selectEntireMenuOption() {
+        EntireMenu[] values = EntireMenu.values();
         return values[selectOption(values)];
     }
 
@@ -47,10 +40,11 @@ public class View {
         io.println(ex.getMessage());
     }
 
-    public void displayItems(List<Item> items) {
+    public void displayItems(List<Item> items, ItemType type) {
+        displayHeader(type.name());
         for (Item i : items) {
-
             io.printf("%d. %s $%.2f%n", i.getItemId(), i.getName(), i.getPrice());
         }
     }
+
 }

@@ -3,8 +3,7 @@ package apicbiz.bobabootea;
 import apicbiz.bobabootea.data.ItemJDBCTemplateRepository;
 import apicbiz.bobabootea.domain.ItemService;
 import apicbiz.bobabootea.presentation.ConsoleIO;
-import apicbiz.bobabootea.presentation.Controller;
-import apicbiz.bobabootea.presentation.ItemController;
+import apicbiz.bobabootea.presentation.EntireMenuController;
 import apicbiz.bobabootea.presentation.View;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -18,9 +17,8 @@ public class App {
         ItemJDBCTemplateRepository repository = new ItemJDBCTemplateRepository(jdbcTemplate);
 
         ItemService service = new ItemService(repository);
-        ItemController itemController = new ItemController(service, view);
-        Controller controller = new Controller(itemController, view);
+        EntireMenuController entireMenuController = new EntireMenuController(service, view);
 
-        controller.run();
+        entireMenuController.run();
     }
 }

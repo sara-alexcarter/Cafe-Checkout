@@ -1,6 +1,5 @@
 package apicbiz.bobabootea.domain;
 
-import apicbiz.bobabootea.data.DataAccessException;
 import apicbiz.bobabootea.data.ItemRepository;
 import apicbiz.bobabootea.models.Item;
 import apicbiz.bobabootea.models.ItemType;
@@ -15,15 +14,7 @@ public class ItemService {
         this.repository = repository;
     }
 
-    public List<Item> findAll() throws DataAccessException {
-        return repository.findAll();
-    }
-
-    public Item findById(int id) throws DataAccessException {
-        return repository.findById(id);
-    }
-
-    public List<Item> findByType(ItemType type) throws DataAccessException {
+    public List<Item> findByType(ItemType type) {
         return repository.findByType(type);
     }
 

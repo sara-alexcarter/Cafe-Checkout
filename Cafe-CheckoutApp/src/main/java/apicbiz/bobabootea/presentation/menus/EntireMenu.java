@@ -1,15 +1,18 @@
 package apicbiz.bobabootea.presentation.menus;
 
-public enum ItemTypeMenu {
-    RETURN_TO_MAIN_MENU("Return to Main Menu"),
+public enum EntireMenu {
+    EXIT("Exit"),
+    VIEW_FULL_MENU("View Full Menu"),
+
     HOT_COFFEE("Hot Coffee"),
     ICED_COFFEE("Iced Coffee"),
     TEA("Tea"),
-    FOOD("Food");
+    FOOD("Food"),
+    VIEW_CART("View Cart");
 
     String items;
 
-    private ItemTypeMenu(String items) {
+    private EntireMenu(String items) {
         this.items = items;
     }
 

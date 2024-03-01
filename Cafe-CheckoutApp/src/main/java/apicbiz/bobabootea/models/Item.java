@@ -10,9 +10,6 @@ public class Item {
     private BigDecimal price;
 
 
-    public Item() {
-
-    }
     public Item(int itemId, ItemType type, String name, BigDecimal price) {
         this.itemId = itemId;
         this.type = type;
@@ -24,34 +21,17 @@ public class Item {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
-    }
-
     public ItemType getType() {
         return type;
-    }
-
-    public void setType(ItemType type) {
-        this.type = type;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public BigDecimal getPrice() {
         return price;
     }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
 
     @Override
     public boolean equals(Object o) {
